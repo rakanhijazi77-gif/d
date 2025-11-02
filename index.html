@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>HERMÉS Trades - تجربة مجانية</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+  :root {
+    --primary: #ffd700;
+    --primary-dark: #e6c200;
+    --dark: #0a0a0a;
+    --darker: #000;
+    --light: #f5f5f5;
+    --gray: #1a1a1a;
+    --gray-light: #333;
+    --transition: all 0.3s ease;
+    --shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    --shadow-gold: 0 0 20px rgba(255, 215, 0, 0.4);
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Tajawal', sans-serif;
+    background: radial-gradient(circle at center, var(--dark), var(--darker));
+    color: var(--light);
+    text-align: center;
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* Header & Branding */
+  .header {
+    position: relative;
+    padding: 2rem 0;
+    background: linear-gradient(to bottom, rgba(10, 10, 10, 0.9), transparent);
+    z-index: 100;
+  }
+
+  .brand {
+    font-size: 1.2rem;
+    color: var(--primary);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    border: 2px solid var(--primary);
+    border-radius: 30px;
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition);
+    animation: fadeInGlow 2s ease-in-out forwards;
+  }
+
+  .brand:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.2), transparent);
+    transition: var(--transition);
+  }
+
+  .brand:hover:before {
+    left: 100%;
+  }
+
+  @keyframes fadeInGlow {
+    0% { opacity: 0; text-shadow: 0 0 0 rgba(255, 215, 0, 0); }
+    100% { opacity: 1; text-shadow: 0 0 15px rgba(255, 215, 0, 0.7); }
+  }
+
+  /* Hero Section */
+  .hero {
+    padding: 4rem 0 2rem;
+    position: relative;
+  }
+
+  .hero:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 215, 0, 0.1), transparent 70%);
+    z-index: -1;
+  }
+
+  .hero h1 {
+    font-size: 2.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary);
+    position: relative;
+    display: inline-block;
+  }
+
+  .hero h1:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    right: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to left, var(--primary), transparent);
+  }
+
+  .hero p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .highlight {
+    color: var(--primary);
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+  }
+
+  .highlight:after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    right: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+  }
+
+  .highlight:hover:after {
+    transform: scaleX(1);
+  }
+
+  /* Form Section */
+  .form-section {
+    padding: 2rem 0 4rem;
+  }
+
+  .form-container {
+    max-width: 450px;
+    margin: 0 auto;
+    padding: 2.5rem;
+    background: rgba(18, 18, 18, 0.8);
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 215, 0, 0.6);
+    box-shadow: var(--shadow), var(--shadow-gold);
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition);
+  }
+
+  .form-container:before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 215, 0, 0.05), transparent);
+    transform: rotate(45deg);
+    animation: shine 6s infinite linear;
+  }
+
+  @keyframes shine {
+    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+  }
+
+  .form-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary);
+  }
+
+  .input-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+  }
+
+  .input-group input {
+    width: 100%;
+    padding: 1rem 1.2rem;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    background: rgba(26, 26, 26, 0.8);
+    color: white;
+    border-radius: 0.5rem;
+    text-align: right;
+    font-size: 1rem;
+    transition: var(--transition);
+  }
+
+  .input-group input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+    outline: none;
+  }
+
+  .input-group label {
+    position: absolute;
+    top: 50%;
+    right: 1.2rem;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.6);
+    transition: var(--transition);
+    pointer-events: none;
+  }
+
+  .input-group input:focus + label,
+  .input-group input:not(:placeholder-shown) + label {
+    top: 0;
+    right: 0.8rem;
+    font-size: 0.8rem;
+    background: var(--gray);
+    padding: 0 0.5rem;
+    color: var(--primary);
+  }
+
+  .btn {
+    display: inline-block;
+    background-color: var(--primary);
+    color: var(--darker);
+    font-weight: 700;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    transition: var(--transition);
+    text-decoration: none;
+    font-size: 1rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(255, 215, 0, 0.3);
+  }
+
+  .btn:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: var(--transition);
+  }
+
+  .btn:hover {
+    background-color: var(--light);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(255, 215, 0, 0.5);
+  }
+
+  .btn:hover:before {
+    left: 100%;
+  }
+
+  .btn-block {
+    display: block;
+    width: 100%;
+  }
+
+  /* Features Section */
+  .features {
+    padding: 4rem 0;
+    background: rgba(10, 10, 10, 0.5);
+  }
+
+  .section-title {
+    font-size: 2.2rem;
+    margin-bottom: 3rem;
+    color: var(--primary);
+    position: relative;
+    display: inline-block;
+  }
+
+  .section-title:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    right: 0;
+    width: 50%;
+    height: 3px;
+    background: var(--primary);
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .feature-card {
+    background: rgba(26, 26, 26, 0.7);
+    padding: 2rem 1.5rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .feature-card:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.05), transparent);
+    opacity: 0;
+    transition: var(--transition);
+  }
+
+  .feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-gold);
+  }
+
+  .feature-card:hover:before {
+    opacity: 1;
+  }
+
+  .feature-icon {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+  }
+
+  .feature-title {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: var(--light);
+  }
+
+  .feature-desc {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.95rem;
+  }
+
+  /* Thank You Section */
+  .thankyou {
+    padding: 4rem 0;
+    display: none;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 0.8s;
+  }
+
+  .thankyou.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .thankyou-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .slogan {
+    font-size: 1.5rem;
+    margin-bottom: 3rem;
+    color: var(--light);
+    max-width: 700px;
+    margin: 0 auto 3rem;
+    line-height: 1.8;
+  }
+
+  .contact-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+
+  .contact-btn {
+    border: none;
+    border-radius: 0.7rem;
+    padding: 1.2rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: var(--transition);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-btn:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: var(--transition);
+  }
+
+  .contact-btn:hover:before {
+    left: 100%;
+  }
+
+  .instagram-btn {
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    color: white;
+    box-shadow: 0 4px 15px rgba(220, 39, 67, 0.4);
+  }
+
+  .instagram-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(220, 39, 67, 0.6);
+  }
+
+  .telegram-btn {
+    background: #0088cc;
+    color: white;
+    box-shadow: 0 4px 15px rgba(0, 136, 204, 0.4);
+  }
+
+  .telegram-btn:hover {
+    background: #33b5ff;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(51, 181, 255, 0.6);
+  }
+
+  .btn-icon {
+    font-size: 1.3rem;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 2rem 0;
+    background: rgba(0, 0, 0, 0.8);
+    margin-top: 2rem;
+    border-top: 1px solid rgba(255, 215, 0, 0.2);
+  }
+
+  .footer p {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .hero h1 {
+      font-size: 2.2rem;
+    }
+    
+    .hero p {
+      font-size: 1.1rem;
+    }
+    
+    .form-container {
+      padding: 2rem 1.5rem;
+    }
+    
+    .contact-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .contact-btn {
+      width: 100%;
+      max-width: 300px;
+      justify-content: center;
+    }
+    
+    .section-title {
+      font-size: 1.8rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero h1 {
+      font-size: 1.8rem;
+    }
+    
+    .hero p {
+      font-size: 1rem;
+    }
+    
+    .brand {
+      font-size: 1rem;
+      padding: 0.4rem 1.2rem;
+    }
+    
+    .form-container {
+      padding: 1.5rem 1rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="container">
+    <div class="brand">HERMES TRADES</div>
+  </div>
+</div>
+
+<div id="formSection">
+  <div class="hero">
+    <div class="container">
+      <h1>انضم إلى HERMÉS Trades 🔥</h1>
+      <p>احصل على <span class="highlight">تجربة مجانية لمدة 48 ساعة</span> في قناة التوصيات الخاصة.</p>
+      <p>بعد التجربة، الاشتراك الشهري فقط <span class="highlight">100 دولار</span> مقابل صفقات تداول يومية حصرية.</p>
+    </div>
+  </div>
+
+  <div class="form-section">
+    <div class="container">
+      <div class="form-container">
+        <h2 class="form-title">ابدأ رحلتك الآن</h2>
+        <form id="leadForm">
+          <div class="input-group">
+            <input type="text" id="name" name="name" placeholder=" " required />
+            <label for="name">الاسم الكامل</label>
+          </div>
+          <div class="input-group">
+            <input type="email" id="email" name="email" placeholder=" " required />
+            <label for="email">البريد الإلكتروني</label>
+          </div>
+          <button type="submit" class="btn btn-block">ابدأ الآن</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="features">
+    <div class="container">
+      <h2 class="section-title">لماذا تختار HERMÉS Trades؟</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3 class="feature-title">تحليلات دقيقة</h3>
+          <p class="feature-desc">نقدم تحليلات فنية متقدمة وإشارات تداول دقيقة لتحقيق أفضل النتائج.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-clock"></i>
+          </div>
+          <h3 class="feature-title">دعم على مدار الساعة</h3>
+          <p class="feature-desc">فريق دعم فني متاح 24/7 للإجابة على استفساراتك وتقديم المساعدة.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3 class="feature-title">أمان وخصوصية</h3>
+          <p class="feature-desc">بيئة آمنة وخاصة تضمن حماية بياناتك واستراتيجيات التداول الخاصة.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="thankyouSection" class="thankyou">
+  <div class="container">
+    <div class="thankyou-content">
+      <h1>🚀 أهلاً بك في عالم HERMÉS Trades</h1>
+      <p class="slogan">
+        النجاح لا ينتظر أحدًا — ابدأ رحلتك معنا اليوم، حيث الثقة، التحليل الذكي، والنتائج الحقيقية.<br>
+        الفرصة أمامك الآن لتكون جزءاً من النخبة في عالم التداول.
+      </p>
+
+      <div class="contact-buttons">
+        <a class="contact-btn instagram-btn" href="https://www.instagram.com/direct/t/340282366841710300949128159894405308692" target="_blank">
+          <i class="fab fa-instagram btn-icon"></i>
+          تواصل عبر إنستغرام
+        </a>
+
+        <a class="contact-btn telegram-btn" href="https://t.me/trade_with_me91" target="_blank">
+          <i class="fab fa-telegram-plane btn-icon"></i>
+          انضم إلى قناة تيليجرام
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <div class="container">
+    <p>جميع الحقوق محفوظة &copy; 2023 HERMÉS Trades</p>
+  </div>
+</div>
+
+<script>
+const form = document.getElementById('leadForm');
+const formSection = document.getElementById('formSection');
+const thankyouSection = document.getElementById('thankyouSection');
+
+form.addEventListener('submit', function(e) {
+  e.preventDefault();
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  
+  if(name === "" || email === "") {
+    alert("يرجى إدخال الاسم الكامل والبريد الإلكتروني أولاً 🙏");
+    return;
+  }
+
+  // إضافة تأثيرات انتقالية
+  formSection.style.opacity = "0";
+  formSection.style.transform = "translateY(-20px)";
+  
+  setTimeout(() => {
+    formSection.style.display = "none";
+    thankyouSection.classList.add('active');
+    
+    // يمكنك هنا إضافة كود إرسال البيانات إلى الخادم
+    console.log("تم إرسال البيانات:", { name, email });
+    
+    // إعادة تعيين النموذج
+    form.reset();
+  }, 600);
+});
+</script>
+
+</body>
+</html>
